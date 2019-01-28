@@ -1,4 +1,4 @@
-package Dynamic;
+package Programmers;
 
 public class Fibonachi {
 	public static long fibo(int n) {
