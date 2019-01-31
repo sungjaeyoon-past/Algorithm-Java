@@ -4,12 +4,12 @@ import java.io.*;
 import java.util.*;
 
 /* 인접 리스트를 이용한 방향성 있는 그래프 클래스 */
-class Graph {
+class DFSGraph {
 	private int V; // 노드의 개수
 	private LinkedList<Integer> adj[]; // 인접 리스트
 
 	/** 생성자 */
-	Graph(int v) {
+	DFSGraph(int v) {
 		V = v;
 		adj = new LinkedList[v];
 		for (int i = 0; i < v; ++i) // 인접 리스트 초기화
@@ -63,7 +63,7 @@ public class DFSjava {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Graph g = new Graph(4);
+		DFSGraph g = new DFSGraph(4);
 
 		g.addEdge(0, 1);
 		g.addEdge(0, 2);
