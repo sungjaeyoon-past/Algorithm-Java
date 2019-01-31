@@ -73,7 +73,7 @@ public class DFSjava {
 		g.addEdge(3, 3);
 
 		g.DFS(2); /* 주어진 노드를 시작 노드로 DFS 탐색 */
-//		g.DFS(); /* 비연결형 그래프의 경우 */
+		g.DFS(); /* 비연결형 그래프의 경우 */
 	}
 
 }
