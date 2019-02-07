@@ -20,24 +20,24 @@ public class MakeDecimal {
 				max3 = a;
 			}
 		}
-		int maxmax=max1 + max2 + max3;
+		int maxmax = max1 + max2 + max3;
 
-		boolean eratos[] = new boolean[maxmax+ 1];
-		eratos[0]=true;eratos[1]=true;
-		for(int i=2;i<=maxmax;i++) {
+		boolean eratos[] = new boolean[maxmax + 1];
+		eratos[0] = true;
+		eratos[1] = true;
+		for (int i = 2; i <= maxmax; i++) {
 			if (eratos[i] == false) {
-				for (int j = 2; i*j <= maxmax; j++) {
+				for (int j = 2; i * j <= maxmax; j++) {
 					eratos[i * j] = true;
 				}
 			}
 		}
-		
-		
 
 		for (int a = 0; a < length - 2; a++) {
 			for (int b = a + 1; b < length - 1; b++) {
 				for (int c = b + 1; c < length; c++) {
-					System.out.print(nums[a] + " " + nums[b] + " " + nums[c] +":"+(nums[a]+ nums[b]+ nums[c])+"\n");
+					System.out.print(
+							nums[a] + " " + nums[b] + " " + nums[c] + ":" + (nums[a] + nums[b] + nums[c]) + "\n");
 					if (eratos[nums[a] + nums[b] + nums[c]] == false) {
 						answer++;
 					}
@@ -50,7 +50,7 @@ public class MakeDecimal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int arr[] = { 1, 2,7, 6, 4};
+		int arr[] = { 1, 2, 7, 6, 4 };
 		solution(arr);
 	}
 
