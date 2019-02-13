@@ -1,12 +1,14 @@
 package Programmers;
 
+import java.util.HashMap;
+import java.util.Iterator;
+
 public class FailRate {
 	static public int[] solution(int N, int[] stages) {
 		int answer[] = new int[N];
 		int reach[] = new int[N];
 		int fail[] = new int[N];
-		double failRate[] = new double[N];
-
+		HashMap<Integer, Double> map = new HashMap<Integer, Double>();
 		for (int stage : stages) {
 			stage--;
 			if (stage == N) {
@@ -20,31 +22,16 @@ public class FailRate {
 				fail[stage]++;
 			}
 		}
-		for(int i=0;i<N;i++) {
-			failRate[i]=(double)fail[i]/(double)reach[i];
+		for(int i=0;i<reach.length;i++) {
+			map.put(i+1, (double)reach[i]/(double)fail[i]);
 		}
-		for(int j=0;j<answer.length;j++) {			
-			double max=-1;
-			int maxIndex=-1;
-			for(int i=0;i<failRate.length;i++) {
-				if(max<failRate[i]) {
-					maxIndex=i;
-					max=failRate[i];
-				}
-			}
-			failRate[maxIndex]=-1;
-			answer[j]=maxIndex+1;
+		Iterator<Integer> it=map.keySet().iterator();
+		while(it.hasNext()) {
+			Integer key=it.next();
+			System.out.println(map.get(key));
 		}
-		
-		
-		for (double a : failRate) {
-			System.out.print(a + " ");
-		}
-		System.out.println();
-		for (int a : answer) {
-			System.out.print(a + " ");
-		}
-				return answer;
+
+		return answer;
 	}
 
 	public static void main(String[] args) {
