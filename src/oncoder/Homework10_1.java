@@ -7,15 +7,12 @@ public class Homework10_1 {
 		for (int a : marks) {
 			sum += a;
 		}
-
-		while ((double)sum / num < 9.5) {
+		while ((double) sum / num < 9.5) {
 			System.out.println(sum + " " + num + " " + (double) sum / num);
 			num++;
 			sum += 10;
 		}
-
 		return num - marks.length;
-
 	}
 
 	public static void main(String[] args) {
