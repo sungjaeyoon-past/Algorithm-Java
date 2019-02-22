@@ -10,7 +10,6 @@ public class Network {
 
 		for (int j = 0; j < visited.length; j++) {
 			if (visited[j] == false) {
-
 				visited[j] = true;
 				qu.add(j);
 				while (qu.size() != 0) {
