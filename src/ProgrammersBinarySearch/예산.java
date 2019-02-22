@@ -1,55 +1,41 @@
 package ProgrammersBinarySearch;
 
 public class 예산 {
-	static public int sumBudget(int[] budgets, int max) {
+	static public int calBudget(int[] budgets, int max) {
 		int sum = 0;
-		for (int budget : budgets) {
-			if (budget < max) {
-				sum += budget;
-			} else {
+		for (int a : budgets) {
+			if (a >= max) {
 				sum += max;
+			} else {
+				sum += a;
 			}
 		}
 		return sum;
 	}
 
 	static public int solution(int[] budgets, int M) {
-		int answer = 0;
-		int sum = 0;
-		int maxBudget=0;
-		for (int budget : budgets) {
-			if(budget>maxBudget) {
-				maxBudget=budget;
-			}
-			sum += budget;
-		}
-		if (M >= sum) {
-			return maxBudget;
-		}
 
-		int low = 0;
-		int high = M;
-		int mid = 0;
+		int left = 0;
+		int right = M;
 
-		while (low+1 < high) {
-			System.out.println("low:"+low+" mid:"+mid+" ,high:"+high);
-			mid = (low + high) / 2;
-			if (sumBudget(budgets, mid) <= M) {
-				low = mid;
+		while (left+1<right) {
+			int mid = left + right;
+			System.out.println("left:" + left + "right:" + right);
+			if (calBudget(budgets, mid) <= M) {
+				left = mid;
 			} else {
-				high = mid;
+				right = mid;
 			}
+			
 		}
-		System.out.println("low:"+low+" mid:"+mid+" ,high:"+high);
 
-		return mid;
+		return 0;
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int arr[] = { 120, 110, 140, 150 };
-		System.out.println(solution(arr, 485));
-		
+		System.out.println(solution(arr, 500));
 	}
 
 }
