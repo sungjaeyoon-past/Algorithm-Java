@@ -1,6 +1,6 @@
 package oncoder;
 
-public class SCV자원캐기 {
+public class SCVresource {
 	static public int solution(String[] map) {
 
 		String[][] arr = new String[map.length][map[0].length() / 2 + 1];

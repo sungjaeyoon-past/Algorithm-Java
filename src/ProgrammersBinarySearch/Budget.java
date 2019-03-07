@@ -1,6 +1,6 @@
 package ProgrammersBinarySearch;
 
-public class 예산 {
+public class Budget {
 	static public int calBudget(int[] budgets, int max) {
 		int sum = 0;
 		for (int a : budgets) {

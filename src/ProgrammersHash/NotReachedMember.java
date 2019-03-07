@@ -2,7 +2,7 @@ package ProgrammersHash;
 
 import java.util.HashMap;
 
-public class 완주하지못한선수 {
+public class NotReachedMember {
 	static public String solution(String[] participant, String[] completion) {
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
 		for (String name : completion) {

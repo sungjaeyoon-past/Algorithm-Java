@@ -3,14 +3,14 @@ package ProgrammersHash;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ì „í™”ë²ˆí˜¸ëª©ë¡ {
+public class PhoneNumberList {
 	static public boolean checkItsContain(String phone, ArrayList<String> arr) {
 		Iterator<String> it = arr.iterator();
 		int phoneL = phone.length();
 		for (; it.hasNext();) {
 			String cur=it.next();
 			String com="";
-			System.out.println(phone+"ê³¼,"+cur);
+			System.out.println(phone+"ê³?,"+cur);
 			int itL = cur.length();
 			if (phoneL > itL) {
 				com=phone.substring(0,itL);
@@ -25,7 +25,7 @@ public class ì „í™”ë²ˆí˜¸ëª©ë¡ {
 				return true;
 			}
 		}
-		return false; // í¬í•¨í•˜ì§€ì•Šê²½ìš°.
+		return false; // ?¬?•¨?•˜ì§??•Šê²½ìš°.
 	}
 
 	static public boolean solution(String[] phone_book) {
@@ -34,7 +34,7 @@ public class ì „í™”ë²ˆí˜¸ëª©ë¡ {
 		for (String phone : phone_book) {
 			if (!arr.isEmpty()) {
 				if (checkItsContain(phone, arr))
-					return false; // í¬í•¨í•˜ê³  ìˆë‹¤ë©´false
+					return false; // ?¬?•¨?•˜ê³? ?ˆ?‹¤ë©´false
 			}
 			arr.add(phone);
 		}
