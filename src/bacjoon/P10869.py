@@ -1,0 +1,6 @@
+arr=list(input().split())
+print(int(arr[0])+int(arr[1]))
+print(int(arr[0])-int(arr[1]))
+print(int(arr[0])*int(arr[1]))
+print(int(int(arr[0])/int(arr[1])))
+print(int(arr[0])%int(arr[1]))
