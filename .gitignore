@@ -1,8 +1,8 @@
 /.metadata/
-*.imi
-/.settings/
-/.classpath/
-/.DS_Store/
-/.idea/
-/.project/
+*.iml
+*.settings/
+*.classpath
+*.DS_Store/
+*.idea/
+*.project/
 
