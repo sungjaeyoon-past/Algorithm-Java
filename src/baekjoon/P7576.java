@@ -57,8 +57,8 @@ public class P7576 {
 			if (finish(graph))
 				break;
 			while(!qx.isEmpty()) {
-				executeQx.offer(qx.poll());
-				executeQy.offer(qy.poll());
+			executeQx.offer(qx.poll());
+			executeQy.offer(qy.poll());
 			}
 			while (!executeQx.isEmpty()) {
 				int x = executeQx.poll();
@@ -80,14 +80,22 @@ public class P7576 {
 
 			}
 			time++;
+			/*보여지기위한용*/
+//			System.out.println("------------------------------");
+//			for(int []a:graph) {
+//				for(int b:a) {
+//					System.out.print(b+" ");
+//				}
+//				System.out.println();
+//			}
+//			System.out.println(time);
+//			System.out.println("------------------------------");
 		}
 		if (finish(graph)) {
 			System.out.println(time);
 		} else {
 			System.out.println(-1);
 		}
-
-
 	}
 
 }
