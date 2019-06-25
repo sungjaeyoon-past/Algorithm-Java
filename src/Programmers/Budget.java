@@ -1,4 +1,4 @@
-package ProgrammersBinarySearch;
+package Programmers;
 
 public class Budget {
 	static public int calBudget(int[] budgets, int max) {

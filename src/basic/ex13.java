@@ -1,4 +1,4 @@
-package recursion;
+package basic;
 
 public class ex13 {
 

@@ -1,4 +1,4 @@
-package CodingTestPractice;
+package basic;
 
 
 import java.util.PriorityQueue;

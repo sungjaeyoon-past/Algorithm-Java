@@ -1,4 +1,4 @@
-package recursion;
+package basic;
 
 import javax.swing.JTable.PrintMode;
 
@@ -34,17 +34,17 @@ public class finalMaze {
 	private static final int BLOCKED_COLOR=2;
 	private static final int PATH_COLOR=3;
 	public static boolean findMazePath(int x, int y) {
-		if(x<0||y<0||x>=N||y>=N) {// ¹è¿­ÀÇ °æ·Î°¡ ¾Æ´Ï¸é ¸®ÅÏ
+		if(x<0||y<0||x>=N||y>=N) {// ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½Î°ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 			return false;
-		}else if(maze[x][y]!=PATHWAY_COLOR) {// º®ÀÌ³ª ¹æ¹®Çß´Ù¸é false ¸®ÅÏ
+		}else if(maze[x][y]!=PATHWAY_COLOR) {// ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½æ¹®ï¿½ß´Ù¸ï¿½ false ï¿½ï¿½ï¿½ï¿½
 			return false;
-		}else if(x==N-1 && y==N-1) {//Ãâ±¸ÀÎ °æ¿ì ¸®ÅÏ
+		}else if(x==N-1 && y==N-1) {//ï¿½â±¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			maze[x][y]=PATH_COLOR;
 			return true;
 		}else{
 			maze[x][y]=PATH_COLOR;
 			System.out.println("x:"+x+", y:"+y);
-			if(findMazePath(x-1, y)||findMazePath(x, y+1)||findMazePath(x+1, y)||findMazePath(x, y-1)) {// °¢°¢ÀÇ ¼¿¿¡´ëÇÏ¿© ¸®Ä¿¼Ç ½ÇÇà
+			if(findMazePath(x-1, y)||findMazePath(x, y+1)||findMazePath(x+1, y)||findMazePath(x, y-1)) {// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				return true;
 			}
 			maze[x][y]=BLOCKED_COLOR;

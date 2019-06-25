@@ -1,4 +1,4 @@
-package recursion;
+package basic;
 
 public class CountingCells {
 
@@ -31,15 +31,15 @@ public class CountingCells {
 	}
 	
 	public static int countCell(int x, int y) {
-		if(x<0||y<0||x>=N||y>=N) { // °æ·Î°¡ ¾Æ´Ñ ±æÀÌ¶ó¸é 0À» ¸®ÅÏ
+		if(x<0||y<0||x>=N||y>=N) { // ï¿½ï¿½Î°ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			return 0;
-		}else if(grid[x][y]!=IMAGE_COLOR){ //ÀÌ¹ÌÁö°¡ ¾Æ´Ï°Å³ª ÀÌ¹Ì ¹æ¹®Çß´Ù¸é 0 À»¸®ÅÏ
+		}else if(grid[x][y]!=IMAGE_COLOR){ //ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï°Å³ï¿½ ï¿½Ì¹ï¿½ ï¿½æ¹®ï¿½ß´Ù¸ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			return 0;
 		}else { 
-			grid[x][y]=ALREADY_COUNTED; //ÀÌ¹Ì ¹æ¹®ÇÑ °ÍÀ¸·Î ¸¸µé°í 
+			grid[x][y]=ALREADY_COUNTED; //ï¿½Ì¹ï¿½ ï¿½æ¹®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
 			return 1+countCell(x-1, y)+countCell(x-1,y-1)+countCell(x,y-1)+countCell(x+1,y-1)
 					+countCell(x+1,y)+countCell(x+1,y+1)+countCell(x,y+1)+countCell(x-1, y+1);
-			//count¸¦ 1 ÇØµÎ°í ÀÎÁ¢ ¸®Ä¿¼Ç
+			//countï¿½ï¿½ 1 ï¿½ØµÎ°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½
 		}
 	}
 }

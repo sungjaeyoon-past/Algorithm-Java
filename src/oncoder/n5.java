@@ -1,4 +1,4 @@
-package gogo;
+package oncoder;
 
 public class n5 {
 	public static int highOrderBitmask(int wordSize) {

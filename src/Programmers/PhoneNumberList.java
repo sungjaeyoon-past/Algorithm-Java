@@ -1,4 +1,4 @@
-package ProgrammersHash;
+package Programmers;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,7 +10,7 @@ public class PhoneNumberList {
 		for (; it.hasNext();) {
 			String cur=it.next();
 			String com="";
-			System.out.println(phone+"ê³?,"+cur);
+			System.out.println(phone+"ï¿½?,"+cur);
 			int itL = cur.length();
 			if (phoneL > itL) {
 				com=phone.substring(0,itL);
@@ -25,7 +25,7 @@ public class PhoneNumberList {
 				return true;
 			}
 		}
-		return false; // ?¬?•¨?•˜ì§??•Šê²½ìš°.
+		return false; // ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½??ï¿½ï¿½ê²½ìš°.
 	}
 
 	static public boolean solution(String[] phone_book) {
@@ -34,7 +34,7 @@ public class PhoneNumberList {
 		for (String phone : phone_book) {
 			if (!arr.isEmpty()) {
 				if (checkItsContain(phone, arr))
-					return false; // ?¬?•¨?•˜ê³? ?ˆ?‹¤ë©´false
+					return false; // ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ë©´false
 			}
 			arr.add(phone);
 		}
