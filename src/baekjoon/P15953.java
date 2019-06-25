@@ -1,4 +1,4 @@
-package bacjoon;
+package baekjoon;
 
 public class P15953 {
 	static int solution(int a, int b) {
