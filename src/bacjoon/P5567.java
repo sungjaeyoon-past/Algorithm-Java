@@ -11,7 +11,6 @@ public class P5567 {
 		Queue<Integer> cost=new LinkedList<Integer>();
 		
 		ArrayList<Integer> visited=new ArrayList<>();
-		ArrayList<Integer> length=new ArrayList<>();
 		q.offer(start);
 		cost.offer(0);
 		
@@ -21,7 +20,6 @@ public class P5567 {
 			
 			if(co==3)break;
 			visited.add(v);
-			length.add(co);
 			
 			for(Integer a:ar[v]) {
 				if(!visited.contains(a) && !q.contains(a)) {
