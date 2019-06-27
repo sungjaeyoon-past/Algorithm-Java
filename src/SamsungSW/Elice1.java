@@ -60,11 +60,6 @@ public class Elice1 {
 					int num=table[i]-(previous+1);
 					maxCount[previous]+=(zeroCount-num);
 					maxCount[table[i]]+=(zeroCount-num);
-	//				for(int k=previous+1;k<table[i];k++) {
-	//					System.out.print("k:"+k);
-	//					//maxCount[k]=
-	//					//System.out.println();
-	//				}
 					previous=table[i];
 					maxCount[previous]++;
 					zeroCount=0;
