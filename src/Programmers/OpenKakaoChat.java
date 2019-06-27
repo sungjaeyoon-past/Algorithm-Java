@@ -7,7 +7,6 @@ import java.util.Map;
 public class OpenKakaoChat {
 	
 	public static String[] solution(String[] records) {
-        String[] answer = {};
         Map<String, String> m = new HashMap<>();
         String []type=new String[records.length];
         String []uidList=new String[records.length];
@@ -33,12 +32,13 @@ public class OpenKakaoChat {
         	if(type[j].equals("E")) {
         		result.add(String.format("%s님이 들어왔습니다.",m.get(uidList[j])));
         	}else if(type[j].equals("L")) {
-        		result.add(String.format("%s님이 나습니다.",m.get(uidList[j])));
+        		result.add(String.format("%s님이 나갔습니다.",m.get(uidList[j])));
         	}
         }
         for(String a:result) {
         	System.out.println(a);
         }
+        String []answer = result.toArray(new String[result.size()]);
         
         
         return answer;

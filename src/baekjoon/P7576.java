@@ -47,6 +47,7 @@ public class P7576 {
 				}
 			}
 		}
+		
 		Queue<Integer> executeQx = new LinkedList<Integer>();
 		Queue<Integer> executeQy = new LinkedList<Integer>();
 		final int[] dx = { 1, -1, 0, 0 };
@@ -81,15 +82,15 @@ public class P7576 {
 			}
 			time++;
 			/*보여지기위한용*/
-//			System.out.println("------------------------------");
-//			for(int []a:graph) {
-//				for(int b:a) {
-//					System.out.print(b+" ");
-//				}
-//				System.out.println();
-//			}
-//			System.out.println(time);
-//			System.out.println("------------------------------");
+			System.out.println("------------------------------");
+			for(int []a:graph) {
+				for(int b:a) {
+					System.out.print(b+" ");
+				}
+				System.out.println();
+			}
+			System.out.println(time);
+			System.out.println("------------------------------");
 		}
 		if (finish(graph)) {
 			System.out.println(time);
