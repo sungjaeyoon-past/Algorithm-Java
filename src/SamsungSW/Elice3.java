@@ -6,92 +6,83 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Elice3 {
-	public static int maxLengthBFS(int[][] graph, int i, int j) {
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		final int[] dx = { 1, -1, 0, 0 };
 		final int[] dy = { 0, 0, 1, -1 };
-		LinkedList<Integer> qx = new LinkedList<Integer>();
-		LinkedList<Integer> qy = new LinkedList<Integer>();
-		LinkedList<String> qxy = new LinkedList<String>();
-		LinkedList<Integer> cost = new LinkedList<Integer>();
-		
-		qx.add(i);
-		qy.add(j);
-		qxy.add(String.format("%d,%d",i,j));
-		cost.add(1);
-
-		int max = 0;
-		while (!qx.isEmpty()) {
-			int x = qx.pollLast();
-			int y = qy.pollLast();
-			String xy=qxy.pollLast();
-			int co = cost.pollLast();
-			if (co > max)
-				max = co;
-			for (int k = 0; k < 4; k++) {
-				int nx = x + dx[k];
-				int ny = y + dy[k];
-				if (nx < 0 || nx >= graph.length || ny < 0 || ny >= graph.length) {
-					continue;
-				} else {
-					if (graph[nx][ny] > graph[x][y]) {
-						int alAdd=qxy.indexOf(String.format("%d,%d",nx,ny));
-						if(alAdd!=-1) {
-							qx.remove(alAdd);
-							qy.remove(alAdd);
-							qxy.remove(alAdd);
-							cost.remove(alAdd);
-						}
-						qx.add(nx);
-						qy.add(ny);
-						qxy.add(String.format("%d,%d",nx,ny));
-						cost.add(co + 1);
-					}
-				}
-			}
-		}
-
-		// System.out.println(String.format("%d %d -> %d",i,j,max));
-		return max;
-	}
-
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		// TODO Auto-generated method stub
+		final int IFN = 1000000001;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st;
 
 		int TEST_CASE = Integer.parseInt(br.readLine());
 		for (int start = 1; start <= TEST_CASE; start++) {
-			long startTime = System.currentTimeMillis();
 
 			int N = Integer.parseInt(br.readLine());
-			PriorityQueue ar = new PriorityQueue();
 			int[][] graph = new int[N][N];
+			int[][] floyd = new int[N * N][N * N];
 
 			for (int i = 0; i < N; i++) {
-				String[] input = br.readLine().split(" ");
+				st = new StringTokenizer(br.readLine());
 				for (int j = 0; j < N; j++) {
-					graph[i][j] = Integer.parseInt(input[j]);
+					graph[i][j] = Integer.parseInt(st.nextToken());
 				}
 			}
+			for (int i = 0; i < floyd.length; i++) {
+				Arrays.fill(floyd[i], IFN);
+			}
 
-			int max = 0;
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
-					int num = maxLengthBFS(graph, i, j);
-					if (num > max)
-						max = num;
+					for (int k = 0; k < 4; k++) {
+						int nx = i + dx[k];
+						int ny = j + dy[k];
+						if (nx < 0 || nx >= N || ny < 0 || ny >= N) {
+							continue;
+						} else {
+							if (graph[i][j] < graph[nx][ny]) {
+								if (floyd[i * N + j][nx * N + ny] == IFN) {
+									floyd[i * N + j][nx * N + ny] = 1;
+								} else {
+									floyd[i * N + j][nx * N + ny]++;
+								}
+							}
+						}
+					}
 				}
 			}
-			long endTime = System.currentTimeMillis();
+			for (int i = 0; i < N * N; i++) {
+				floyd[i][i] = 0;
+			}
 
-			bw.write(String.format("#%d %d\n", start, max));
-			bw.write( "실행 시간 : " + ( endTime - start )/1000.0 );
-
+			for (int k = 0; k < N * N; k++) {
+				for (int i = 0; i < N * N; i++) {
+					for (int j = 0; j < N * N; j++) {
+						if (floyd[i][k] != IFN && floyd[k][j] != IFN && floyd[i][j] != IFN) {
+							if (floyd[i][k] + floyd[k][j] > floyd[i][j]) {
+								floyd[i][j] = floyd[i][k] + floyd[k][j];
+							}
+						} else {
+							if (floyd[i][k] + floyd[k][j] < floyd[i][j]) {
+								floyd[i][j] = floyd[i][k] + floyd[k][j];
+							}
+						}
+					}
+				}
+			}
+			int max = -1;
+			for (int[] a : floyd) {
+				for (int b : a) {
+					if (b != IFN) {
+						if (b > max)
+							max = b;
+					}
+				}
+			}
+			bw.write(String.format("#%d %d\n",TEST_CASE,max + 1));
 		}
 		bw.flush();
 	}
