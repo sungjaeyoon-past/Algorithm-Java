@@ -1,5 +1,7 @@
 package baekjoon;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class P17297 {
@@ -8,29 +10,15 @@ public class P17297 {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 
-		int M = Integer.parseInt(sc.nextLine());
-
-		int fL = 5;
-		int sL = 13;
-		String first = "Messi";
-		String second = "Messi Gimossi";
-		String third = null;
-
-		while (fL + sL < M) {
-			third = second + " " + first;
-			int tL = fL + 1 + sL;
-			first = second;
-			fL = sL;
-			second = third;
-			sL = tL;
-		}
-		third = second + " " + first;
-		String s = third.substring(M - 1, M);
-		if (s.equals(" ")) {
-			System.out.println("Messi Messi Gimossi");
-		} else {
-			System.out.println(s);
-		}
+		int ob = Integer.parseInt(sc.nextLine());
+		Queue<Long> length= new LinkedList<Long>();
+		Queue<String> str= new LinkedList<String>();		
+		
+		String M="0";
+		final int ML=5;
+		
+		String G="1";
+		final int GL=7;
 
 	}
 
